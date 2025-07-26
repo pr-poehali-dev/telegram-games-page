@@ -1,8 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Telegram Header Space */}
@@ -54,12 +57,15 @@ const Index = () => {
       {/* Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-gray-900/90 backdrop-blur-md border-t border-gray-700/50">
         <div className="flex justify-around py-3">
-          <button className="flex flex-col items-center py-2 px-4 text-gray-400 hover:text-yellow-400 transition-colors">
-            <Icon name="Home" size={22} />
+          <button className="flex flex-col items-center py-2 px-4 text-yellow-400">
+            <Icon name="Home" size={22} className="drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]" />
             <span className="text-xs mt-1">Главная</span>
           </button>
-          <button className="flex flex-col items-center py-2 px-4 text-yellow-400">
-            <Icon name="Gamepad2" size={22} className="drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]" />
+          <button 
+            onClick={() => navigate('/games')}
+            className="flex flex-col items-center py-2 px-4 text-gray-400 hover:text-yellow-400 transition-colors"
+          >
+            <Icon name="Gamepad2" size={22} />
             <span className="text-xs mt-1">Игры</span>
           </button>
           <button className="flex flex-col items-center py-2 px-4 text-gray-400 hover:text-yellow-400 transition-colors">
